@@ -17,3 +17,6 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Sensitive config (开发者自行创建，参考 application.yml.example)
+src/main/resources/application.yml
