@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.novelstudio</groupId>
+    <groupId>com.inkfield</groupId>
     <artifactId>backend</artifactId>
     <version>0.1.0</version>
     <name>inkfield-backend</name>
@@ -91,7 +91,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.novelstudio.backend.NovelAiStudioApplication</mainClass>
+                    <mainClass>com.inkfield.backend.InkFieldApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -17,3 +17,8 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# 配置文件（包含敏感信息，使用 application.yml.example 作为模板）
+application.yml
+application-*.yml
+!application.yml.example

@@ -9,9 +9,9 @@
 
 # ⚙️ InkField Backend
 
-### ✨ Spring Boot 3 + Java 21 + PostgreSQL ✨
+### ✨ Spring Boot 3 + Java 21 + MySQL ✨
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&pause=1000&color=6DB33F&center=true&vCenter=true&multiline=true&repeat=true&width=500&height=60&lines=InkField+Backend;Spring+Boot+%2B+Java+21+%2B+PostgreSQL" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&pause=1000&color=6DB33F&center=true&vCenter=true&multiline=true&repeat=true&width=500&height=60&lines=InkField+Backend;Spring+Boot+%2B+Java+21+%2B+MySQL" alt="Typing SVG" />
 
 </div>
 
@@ -20,7 +20,7 @@
 <!-- ====== 徽章组 ====== -->
 [![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
 [![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 
 <br/>
 
@@ -136,7 +136,7 @@ OpenAI 兼容<br/>
 <tr>
 <td align="center"><b>🗄️ 数据层</b></td>
 <td>
-<img src="https://img.shields.io/badge/PostgreSQL-15-4169E1?style=flat-square&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
 <img src="https://img.shields.io/badge/Spring_Data_JPA-6DB33F?style=flat-square&logo=spring&logoColor=white"/>
 <img src="https://img.shields.io/badge/Flyway-10.x-CC0200?style=flat-square&logo=flyway&logoColor=white"/>
 </td>
@@ -173,7 +173,7 @@ OpenAI 兼容<br/>
 
 [![JDK](https://img.shields.io/badge/JDK-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
 [![Maven](https://img.shields.io/badge/Maven-3.9+-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)](https://maven.apache.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 
 </div>
 
@@ -184,22 +184,33 @@ git clone https://github.com/Jvxi/InkField-backend.git
 cd InkField-backend
 ```
 
-### 2️⃣ 配置数据库
+### 2️⃣ 配置环境
 
-创建 PostgreSQL 数据库：
+创建配置文件（配置文件包含敏感信息，不会提交到远程仓库）：
 
-```sql
-CREATE DATABASE inkfield;
+```bash
+cp src/main/resources/application.yml.example src/main/resources/application.yml
 ```
 
-修改 `src/main/resources/application.yml`：
+然后编辑 `application.yml`，将 `<占位符>` 替换为你的实际配置：
 
-```yaml
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/inkfield
-    username: your_username
-    password: your_password
+| 占位符 | 说明 | 示例 |
+|:---|:---|:---|
+| `<DB_HOST>` | 数据库主机地址 | `localhost` |
+| `<DB_PORT>` | 数据库端口 | `3306` |
+| `<DB_NAME>` | 数据库名称 | `inkfield` |
+| `<DB_USERNAME>` | 数据库用户名 | `root` |
+| `<DB_PASSWORD>` | 数据库密码 | `your_password` |
+| `<SMTP_HOST>` | 邮箱 SMTP 服务器 | `smtp.126.com` |
+| `<SMTP_PORT>` | SMTP 端口 | `465` |
+| `<EMAIL_USERNAME>` | 发件人邮箱 | `your@126.com` |
+| `<EMAIL_AUTH_CODE>` | 邮箱授权码（非登录密码） | `your_auth_code` |
+| `<FRONTEND_URL>` | 前端访问地址 | `http://localhost:5173` |
+
+创建数据库：
+
+```sql
+CREATE DATABASE inkfield CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
 ### 3️⃣ 运行项目
@@ -236,7 +247,7 @@ mvn clean package
 ```
 ⚙️ backend/
 │
-├── 📂 src/main/java/com/novelstudio/backend/
+├── 📂 src/main/java/com/inkfield/backend/
 │   │
 │   ├── 🎮 controller/              # API 控制器
 │   │   ├── AuthController.java     # 认证接口

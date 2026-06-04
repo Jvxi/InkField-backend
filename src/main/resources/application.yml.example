@@ -1,0 +1,172 @@
+# ============================================================
+# InkField Backend 配置文件模板
+# ============================================================
+# 使用说明：
+#   1. 复制本文件并重命名为 application.yml
+#   2. 将下面的 <占位符> 替换为你的实际配置
+#   3. application.yml 已被 .gitignore 忽略，不会提交到远程仓库
+# ============================================================
+
+server:
+  port: 4000
+  tomcat:
+    max-threads: 200
+    min-spare-threads: 20
+    accept-count: 100
+    connection-timeout: 10000
+    max-connections: 8192
+    protocol:
+      max-http-form-post-size: 10MB
+
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+    deserialization:
+      fail-on-missing-creator-properties: false
+  datasource:
+    # ↓↓↓ 数据库连接配置 ↓↓↓
+    url: jdbc:mysql://<DB_HOST>:<DB_PORT>/<DB_NAME>?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: <DB_USERNAME>
+    password: <DB_PASSWORD>
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      connection-timeout: 10000
+      max-lifetime: 1800000
+      leak-detection-threshold: 60000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Shanghai
+        jdbc.batch_size: 50
+        jdbc.batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+        generate_statistics: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+  mail:
+    # ↓↓↓ 邮箱 SMTP 配置（以 126 邮箱为例）↓↓↓
+    host: <SMTP_HOST>               # 例如 smtp.126.com / smtp.qq.com / smtp.gmail.com
+    port: <SMTP_PORT>               # 例如 465 (SSL) 或 587 (STARTTLS)
+    username: <EMAIL_USERNAME>      # 你的邮箱地址
+    # ↓↓↓ 授权码，不是邮箱登录密码 ↓↓↓
+    # 126邮箱: 设置 > POP3/SMTP/IMAP > 开启SMTP > 生成授权码
+    # QQ邮箱: 设置 > 账户 > POP3/SMTP > 生成授权码
+    password: <EMAIL_AUTH_CODE>
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          starttls:
+            enable: false
+            required: false
+          connectiontimeout: 10000
+          timeout: 10000
+          writetimeout: 10000
+
+inkfield:
+  app:
+    # ↓↓↓ 前端访问地址 ↓↓↓
+    public-url: <FRONTEND_URL>      # 例如 http://localhost:5173
+  auth:
+    token-ttl-hours: 168
+  mail:
+    # ↓↓↓ 发件人邮箱（需与上面的 username 一致）↓↓↓
+    from: <EMAIL_USERNAME>
+    required: true
+  storage:
+    import-legacy-json: true
+
+  # Story System 配置
+  story-system:
+    csv-path: classpath:references/csv/
+    contract-cache-ttl: 3600
+
+  # 长期记忆系统配置
+  memory:
+    compactor-enabled: true
+    compactor-threshold: 500
+    orchestrator-max-items: 30
+    budget:
+      write:
+        max-items: 30
+        working-ratio: 0.45
+        episodic-ratio: 0.30
+        semantic-ratio: 0.25
+      review:
+        max-items: 40
+        working-ratio: 0.35
+        episodic-ratio: 0.35
+        semantic-ratio: 0.30
+
+  # RAG 智能上下文配置（可选，通过环境变量或直接填写）
+  rag:
+    embed-base-url: ${EMBED_BASE_URL:}
+    embed-model: ${EMBED_MODEL:text-embedding-3-small}
+    embed-api-key: ${EMBED_API_KEY:}
+    embed-concurrency: 64
+    embed-batch-size: 64
+    rerank-base-url: ${RERANK_BASE_URL:}
+    rerank-model: ${RERANK_MODEL:jina-reranker-v3}
+    rerank-api-key: ${RERANK_API_KEY:}
+    vector-top-k: 30
+    bm25-top-k: 20
+    rerank-top-n: 10
+    rrf-k: 60
+    graph-rag-enabled: false
+    graph-rag-expand-hops: 1
+    graph-rag-max-expanded-entities: 30
+    vector-full-scan-max-vectors: 500
+
+  # 追读力系统配置
+  reading-power:
+    pacing-words-per-point-excellent: 1000
+    pacing-words-per-point-good: 1500
+    foreshadowing-urgency-pending-high: 100
+    foreshadowing-urgency-pending-medium: 50
+    foreshadowing-urgency-threshold-show: 60
+
+# 性能监控配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    tags:
+      application: inkfield
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      percentiles:
+        http.server.requests: 0.5, 0.95, 0.99
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.inkfield.backend: INFO
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/inkfield.log
+    max-size: 10MB
+    max-history: 30
