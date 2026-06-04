@@ -1,16 +1,18 @@
 <div align="center">
 
-<!-- ====== 动态打字标题 ====== -->
-<a href="https://github.com/Jvxi/InkField-backend">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=38&pause=1000&color=6DB33F&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=80&lines=%E2%9A%99%EF%B8%8F+InkField+Backend;Spring+Boot+%2B+Java+21+%2B+PostgreSQL" alt="Typing SVG" />
-</a>
+<!-- ====== 动态波浪头部 ====== -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=6DB33F&height=150&section=header" width="100%"/>
 
 <br/>
 
-<!-- ====== 动态 Banner ====== -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=6DB33F&height=180&section=header&text=Backend&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Spring%20Boot%203%20+%20Java%2021&descSize=20&descAlignY=55&descAlign=50" width="100%"/>
+<!-- ====== 项目标题 ====== -->
+# ⚙️ InkField Backend
 
-<br/><br/>
+### ✨ Spring Boot 3 + Java 21 + PostgreSQL ✨
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Noto+Sans+SC&weight=700&size=20&pause=1000&color=6DB33F&center=true&vCenter=true&multiline=true&repeat=true&width=500&height=50&lines=砚田小说创作平台-后端服务;RESTful+API服务)](https://git.io/typing-svg)
+
+<br/>
 
 <!-- ====== 徽章组 ====== -->
 [![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
