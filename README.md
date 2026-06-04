@@ -380,12 +380,12 @@ mvn clean package
 <div align="center">
 
 <!-- GitHub Stats -->
-<img src="https://github-readme-stats.vercel.app/api?username=Jvxi&show_icons=true&theme=radical&border_color=6DB33F&title_color=6DB33F&icon_color=6DB33F&text_color=ffffff&bg_color=0d1117&hide_border=true&count_private=true&include_all_commits=true&repo=InkField-backend" width="48%"/>
+<img src="https://github-readme-stats-one-bice.vercel.app/api?username=Jvxi&show_icons=true&theme=radical&border_color=6DB33F&title_color=6DB33F&icon_color=6DB33F&text_color=ffffff&bg_color=0d1117&hide_border=true&count_private=true&include_all_commits=true&repo=InkField-backend" width="48%"/>
 
 &nbsp;
 
 <!-- Top Languages -->
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Jvxi&layout=compact&theme=radical&border_color=6DB33F&title_color=6DB33F&text_color=ffffff&bg_color=0d1117&hide_border=true&langs_count=8&repo=InkField-backend" width="40%"/>
+<img src="https://github-readme-stats-one-bice.vercel.app/api/top-langs/?username=Jvxi&layout=compact&theme=radical&border_color=6DB33F&title_color=6DB33F&text_color=ffffff&bg_color=0d1117&hide_border=true&langs_count=8&repo=InkField-backend" width="40%"/>
 
 </div>
 
