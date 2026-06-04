@@ -11,7 +11,7 @@
 
 ### ✨ Spring Boot 3 + Java 21 + PostgreSQL ✨
 
-<img src="https://readme-typing-svg.demolab.com?font=Noto+Sans+SC&weight=700&size=20&pause=1000&color=6DB33F&center=true&vCenter=true&multiline=true&repeat=true&width=500&height=60&lines=砚田小说创作平台-后端服务;RESTful+API服务" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&pause=1000&color=6DB33F&center=true&vCenter=true&multiline=true&repeat=true&width=500&height=60&lines=InkField+Backend;Spring+Boot+%2B+Java+21+%2B+PostgreSQL" alt="Typing SVG" />
 
 </div>
 
