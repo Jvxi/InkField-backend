@@ -1,4 +1,4 @@
-# Build output
+﻿# Build output
 target/
 
 # IDE
@@ -22,3 +22,7 @@ Thumbs.db
 application.yml
 application-*.yml
 !application.yml.example
+
+# Claude Code local worktrees
+.claude/
+
